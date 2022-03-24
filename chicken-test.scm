@@ -1,22 +1,31 @@
 ;;; chicken-test.scm
 (import lazy-ffi)
 (require-library lazy-ffi)
+#~("msvcrt.dll" "dll-test.dll")
 
-#~"msvcrt.dll"
-(#~printf "test %d\n" 5)
-
-#~"dll-test.dll"
+; print from pointer
 (define test (#~get_pointer #x00AF9F4E return: pointer:))
+(#~printf "test\n")
 (#~printf "0x%08X\n" test)
-
-; char get_char_from_pointer(char *pointer) {return *pointer;}
-(define test2 (#~get_char_from_pointer test return: char:))
-(#~printf "%02X" test2)
-
-; void print_char_from_pointer(char *pointer) {printf("%c\n", *pointer);}
 (#~print_char_from_pointer test)
-(#~printf "%c\n" test2)
 
+;; write to file
+(define pointerval (#~get_char_from_pointer test return: char:))
+(define outputfile (#~fopen "C:\\work\\c\\chicken-sacrifice\\test-foreign-dll\\test-res.txt" "w" return: pointer:))
+(#~fprintf outputfile "strength: %02X\n" pointerval)
+(#~fclose outputfile)
+
+;; char get_char_from_pointer(char *pointer) {return *pointer;}
+;(define test2 (#~get_char_from_pointer test return: char:))
+;(#~print test2)
+
+;(#~freopen "CONOUT$" "w" #~stdout)
+;(#~freopen "CONOUT$" "w" current-output-port)
+;(#~freopen "CONOUT$" "w" stdout)
+
+; start server at 0.0.0.0 port 9873
+;(import nrepl)
+;(nrepl 9873)
 
 
 ; (require-library (chicken foreign))

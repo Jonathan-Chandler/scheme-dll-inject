@@ -26,5 +26,5 @@ dll-test.dll: build/dll-test.o
 	gcc -shared -Wall -Iinc -IC:\msys64\mingw32\include\chicken -o dll-test.dll build/dll-test.o -IC:\msys64\mingw32\include\chicken -lchicken -lws2_32
 
 clean:
-	rm -rf *.o *.exe *.dll
+	rm -rf build/*.o *.exe *.dll
 
