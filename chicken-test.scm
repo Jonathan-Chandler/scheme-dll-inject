@@ -15,6 +15,13 @@
 (#~fprintf outputfile "strength: %02X\n" pointerval)
 (#~fclose outputfile)
 
+(import (chicken format))
+(printf "test~%")
+(printf "~a~%" "test")
+; 0x4d2
+(printf "~x" 1234)
+(printf "~C" 61)
+
 ;; char get_char_from_pointer(char *pointer) {return *pointer;}
 ;(define test2 (#~get_char_from_pointer test return: char:))
 ;(#~print test2)

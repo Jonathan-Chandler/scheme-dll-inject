@@ -75,14 +75,6 @@ __declspec(dllexport) DWORD WINAPI launch_chicken(HMODULE hModule)
   int status;
   FILE *launch_server_script;
 
-#if 0
-  // create console window
-  AllocConsole();
-  freopen("CONIN$", "r", stdin);
-  freopen("CONOUT$", "w", stdout);
-  freopen("CONOUT$", "w", stderr);
-#endif
-
   launch_server_script = fopen(script_path, "r");
   if (launch_server_script == NULL)
   {
@@ -116,46 +108,6 @@ __declspec(dllexport) DWORD WINAPI launch_chicken(HMODULE hModule)
 
   printf("close file\n");
   fclose(launch_server_script);
-
-#if 0
-  // read commands from console to chicken until empty string
-  while (1)
-  {
-    int i = 0;
-    for (;;)
-    {
-      char c = fgetc(stdin);
-      if (c == EOF)
-      {
-        line[i] = 0;
-        break;
-      }
-
-      if (c == '\n')
-      {
-        line[i] = 0;
-        break;
-      }
-
-      line[i] = c;
-
-      i++;
-    }
-    if (line[0] == 0)
-      break;
-
-    status = CHICKEN_eval_string_to_string(line, buffer, 255);
-    if (!status)
-    {
-      CHICKEN_get_error_message(buffer, 255);
-      printf("%s\n", buffer);
-    }
-    else
-    {
-      printf("%s\n", buffer);
-    }
-  }
-#endif
 
   return 0;
 }

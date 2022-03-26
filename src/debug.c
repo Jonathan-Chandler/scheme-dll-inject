@@ -61,4 +61,3 @@ void ADD_CALL debug_print_last_win_error()
   printf(lpMsgBuf);
 }
 
-
