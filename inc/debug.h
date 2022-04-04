@@ -21,6 +21,7 @@ enum
   DEBUG_LOG_COUNT,
 };
 extern int debug_level;
+//int debug_level = DEBUG_LOG_VERBOSE;
 
 #define debug_verbose(...) \
   if (debug_level >= DEBUG_LOG_VERBOSE) \

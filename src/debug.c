@@ -1,7 +1,5 @@
 #include "debug.h"
 
-int debug_level = DEBUG_LOG_VERBOSE;
-
 void ADD_CALL debug_print_mem_basic_flags(MEMORY_BASIC_INFORMATION *memInfo)
 {
     printf("AllocationProtect = 0x%lX", memInfo->AllocationProtect);

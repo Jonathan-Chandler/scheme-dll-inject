@@ -1,12 +1,13 @@
 #include "debug.h"
-#include "dll-test.h"
-#include "process_info.h"
+#include "dll/dll-test.h"
+#include "injector/process_info.h"
 
 #include <windows.h>
 #include <stdint.h>
 #include <stdio.h>
 
-int debug_level = DEBUG_LOG_VERBOSE;
+//int debug_level = DEBUG_LOG_VERBOSE;
+int debug_level = DEBUG_LOG_ERROR;
 
 int main(void) 
 {

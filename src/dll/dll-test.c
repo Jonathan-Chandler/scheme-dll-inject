@@ -1,4 +1,4 @@
-#include "dll-test.h"
+#include "dll/dll-test.h"
 #include <stdio.h>
 #include <chicken.h>
 

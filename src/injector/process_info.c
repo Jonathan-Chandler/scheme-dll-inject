@@ -1,5 +1,5 @@
 #include "debug.h"
-#include "process_info.h"
+#include "injector/process_info.h"
 #include <errno.h>
 #include <psapi.h>        //MODULEINFO
 #include <tlhelp32.h>     // PROCESSENTRY32

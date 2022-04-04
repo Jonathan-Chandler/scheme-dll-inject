@@ -1,4 +1,4 @@
 make clean
 make
-./main.exe
+./test_main.exe
 

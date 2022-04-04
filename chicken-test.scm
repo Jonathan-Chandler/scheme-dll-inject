@@ -1,3 +1,4 @@
+; ranking of kings
 ;;; chicken-test.scm
 (import lazy-ffi)
 (require-library lazy-ffi)
@@ -19,8 +20,9 @@
 (printf "test~%")
 (printf "~a~%" "test")
 ; 0x4d2
-(printf "~x" 1234)
-(printf "~C" 61)
+(printf "~x~%" 1234)
+; 'A'?
+(printf "~C~%" 65)
 
 ;; char get_char_from_pointer(char *pointer) {return *pointer;}
 ;(define test2 (#~get_char_from_pointer test return: char:))

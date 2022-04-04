@@ -1,4 +1,4 @@
 call make clean
 call make
-call main.exe
+call test_main.exe
 rem call "../build/selfload.exe"
